@@ -37,14 +37,21 @@ get_header(); ?>
             <?php if ( $Drink->have_posts() ) : ?>
                 <?php $Drink_item_number = 0; ?>
                 <?php while ( $Drink->have_posts() ) : $Drink->the_post(); ?>
-                    <article class="card card-body col-4<?php if( $Drink_item_number == 0) echo ' first'; ?> <?php echo join( ' ', get_post_class( '' ) ) ?>" id="post-<?php the_ID(); ?>">
-                        <a href="<?php echo '#drink-'.$Drink_item_number ?>"> <?php
-                                if ( has_post_thumbnail() ) {
-                                    the_post_thumbnail( 'normal', array(
-                                	'class' => 'img-fluid rounded'
-                                ) );
-                                }
-                             ?> <h2 class="mt-2"><?php the_title(); ?></h2> </a>
+                    <article class="col-4 text-white<?php if( $Drink_item_number == 0) echo ' first'; ?> <?php echo join( ' ', get_post_class( '' ) ) ?>" style="position: relative;" id="post-<?php the_ID(); ?>">
+                        <a data-toggle="modal" href="<?php echo '#drink-'.$Drink_item_number ?>">
+                            <div class="card">
+                                <?php
+                                    if ( has_post_thumbnail() ) {
+                                        the_post_thumbnail( 'normal', array(
+                                    	'class' => 'card-img'
+                                    ) );
+                                    }
+                                 ?>
+                                <div class="card-img-overlay">
+                                    <h2 class="card-title"><?php the_title(); ?></h2>
+                                </div>
+                            </div>
+                        </a>
                     </article>
                     <?php $Drink_item_number++; ?>
                 <?php endwhile; ?>
