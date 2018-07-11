@@ -6,25 +6,25 @@
 <?php
 get_header(); ?>
 
-<div class="alert alert-success container">
-    <strong><?php _e( 'page-drinks.php', 'lazy_days' ); ?></strong>
-</div>
-<section class="mt-4">
-    <div class="container">
-        <div class="row">
-            <article>
-                <?php
-                    if ( has_post_thumbnail() ) {
-                        the_post_thumbnail( 'post_thumbnail', array(
-                    	'class' => 'img-fluid rounded'
-                    ) );
-                    }
-                 ?>
-                <h2 class="mt-2"><?php _e( 'Our Drinks', 'lazy_days' ); ?></h2> 
-                <p><?php _e( 'We\'re proud of the quality of our drinks. Here are some of our favourites which we can make for you.', 'lazy_days' ); ?></p> 
-            </article>
-        </div>
-        <div class="row">
+<div class="container">
+    <div class="alert alert-success container">
+        <strong><?php _e( 'page-drinks-new.php', 'lazy_days' ); ?></strong>
+    </div>
+    <section class="mt-4">
+        <div class="container">
+            <div class="row">
+                <article>
+                    <?php
+                        if ( has_post_thumbnail() ) {
+                            the_post_thumbnail( 'post_thumbnail', array(
+                        	'class' => 'img-fluid'
+                        ) );
+                        }
+                     ?>
+                    <h2 class="mt-2"><?php _e( 'Our Drinks', 'lazy_days' ); ?></h2> 
+                    <p><?php _e( 'We\'re proud of the quality of our drinks. Here are some of our favourites which we can make for you.', 'lazy_days' ); ?></p> 
+                </article>
+            </div>
             <?php
                 $Drink_args = array(
                 	'post_type' => 'Drink',
@@ -35,32 +35,32 @@ get_header(); ?>
             ?>
             <?php $Drink = new WP_Query( $Drink_args ); ?>
             <?php if ( $Drink->have_posts() ) : ?>
-                <?php $Drink_item_number = 0; ?>
                 <?php while ( $Drink->have_posts() ) : $Drink->the_post(); ?>
-                    <article class="col-4 text-white<?php if( $Drink_item_number == 0) echo ' first'; ?> <?php echo join( ' ', get_post_class( '' ) ) ?>" style="position: relative;" id="post-<?php the_ID(); ?>">
-                        <a data-toggle="modal" href="<?php echo '#drink-'.$Drink_item_number ?>">
-                            <div class="card">
+                    <div <?php post_class( 'row' ); ?> id="post-<?php the_ID(); ?>">
+                        <div class="col-md-4">
+                            <div class="card mb-3">
                                 <?php
                                     if ( has_post_thumbnail() ) {
                                         the_post_thumbnail( 'normal', array(
-                                    	'class' => 'card-img'
+                                    	'class' => 'card-img-top'
                                     ) );
                                     }
                                  ?>
-                                <div class="card-img-overlay">
-                                    <h2 class="card-title"><?php the_title(); ?></h2>
+                                <div class="card-body">
+                                    <h4 class="card-title"><?php the_title(); ?></h4>
+                                    <?php the_excerpt( ); ?>
+                                    <p class="card-text"><small class="text-muted"><?php _e( 'Last updated 3 mins ago', 'lazy_days' ); ?></small></p>
                                 </div>
-                            </div>
-                        </a>
-                    </article>
-                    <?php $Drink_item_number++; ?>
+                            </div>                                         
+                        </div>
+                    </div>
                 <?php endwhile; ?>
                 <?php wp_reset_postdata(); ?>
             <?php else : ?>
                 <p><?php _e( 'Sorry, no posts matched your criteria.', 'lazy_days' ); ?></p>
             <?php endif; ?>
         </div>
-    </div>
-</section>            
+    </section>
+</div>            
 
 <?php get_footer(); ?>
