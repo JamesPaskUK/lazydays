@@ -13,17 +13,23 @@ get_header(); ?>
     <section class="mt-4">
         <div class="container">
             <div class="row">
-                <article>
-                    <?php
-                        if ( has_post_thumbnail() ) {
-                            the_post_thumbnail( 'post_thumbnail', array(
-                        	'class' => 'img-fluid'
-                        ) );
-                        }
-                     ?>
-                    <h2 class="mt-2"><?php _e( 'Our Drinks', 'lazy_days' ); ?></h2> 
-                    <p><?php _e( 'We\'re proud of the quality of our drinks. Here are some of our favourites which we can make for you.', 'lazy_days' ); ?></p> 
-                </article>
+                <?php if ( have_posts() ) : ?>
+                    <?php while ( have_posts() ) : the_post(); ?>
+                        <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+                            <?php
+                                if ( has_post_thumbnail() ) {
+                                    the_post_thumbnail( 'normal', array(
+                                	'class' => 'img-fluid'
+                                ) );
+                                }
+                             ?>
+                            <h2 class="mt-2"><?php the_title(); ?></h2> 
+                            <?php the_content(); ?> 
+                        </article>
+                    <?php endwhile; ?>
+                <?php else : ?>
+                    <p><?php _e( 'Sorry, no posts matched your criteria.', 'lazy_days' ); ?></p>
+                <?php endif; ?>
             </div>
             <div class="row">
                 <?php
