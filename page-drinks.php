@@ -31,7 +31,7 @@ get_header(); ?>
                     <p><?php _e( 'Sorry, no posts matched your criteria.', 'lazy_days' ); ?></p>
                 <?php endif; ?>
             </div>
-            <div class="row">
+            <div class="card-columns">
                 <?php
                     $Drink_args = array(
                     	'post_type' => 'Drink',
@@ -43,23 +43,25 @@ get_header(); ?>
                 <?php $Drink = new WP_Query( $Drink_args ); ?>
                 <?php if ( $Drink->have_posts() ) : ?>
                     <?php while ( $Drink->have_posts() ) : $Drink->the_post(); ?>
-                        <div <?php post_class( 'col-md-3' ); ?> id="post-<?php the_ID(); ?>">
-                            <div class="card mb-3">
+                        <div <?php post_class( 'card rounded' ); ?> id="post-<?php the_ID(); ?>">
+                            <?php
+                                if ( has_post_thumbnail() ) {
+                                    the_post_thumbnail( 'normal', array(
+                                	'class' => 'card-img-top'
+                                ) );
+                                }
+                             ?>
+                            <div class="card-body">
+                                <h4 class="card-title"><?php the_title(); ?></h4>
+                                <p class="card-text"><?php echo get_field( 'description' ); ?></p>
+                            </div>
+                            <div class="card-footer">
                                 <a href="<?php echo esc_url( get_permalink() ); ?>">
-                                    <?php
-                                        if ( has_post_thumbnail() ) {
-                                            the_post_thumbnail( 'normal', array(
-                                        	'class' => 'card-img-top'
-                                        ) );
-                                        }
-                                     ?>
-                                    <div class="card-body">
-                                        <h4 class="card-title"><?php the_title(); ?></h4>
-                                        <?php the_excerpt( ); ?>
-                                        <p class="card-text"><small class="text-muted"><?php _e( 'Last updated 3 mins ago', 'lazy_days' ); ?></small></p>
-                                    </div>
+                                    <button type="button" class="badge-pill badge-info btn">
+                                        <?php _e( 'Nutritional Info', 'lazy_days' ); ?>
+                                    </button>
                                 </a>
-                            </div>                                         
+                            </div>
                         </div>
                     <?php endwhile; ?>
                     <?php wp_reset_postdata(); ?>
