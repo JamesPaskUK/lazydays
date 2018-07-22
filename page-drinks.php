@@ -47,7 +47,7 @@ get_header(); ?>
                             <?php
                                 if ( has_post_thumbnail() ) {
                                     the_post_thumbnail( 'normal', array(
-                                	'class' => 'card-img-top'
+                                	'class' => 'card-img-top img-fluid drink-image'
                                 ) );
                                 }
                              ?>
