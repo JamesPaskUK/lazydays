@@ -1,7 +1,7 @@
 <?php
 get_header(); ?>
 
-<div class="card w-50 mx-auto">
+<div class="card w-50 mx-auto shadow">
     <?php
         if ( has_post_thumbnail() ) {
             the_post_thumbnail( 'medium', array(

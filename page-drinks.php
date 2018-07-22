@@ -43,7 +43,7 @@ get_header(); ?>
                 <?php $Drink = new WP_Query( $Drink_args ); ?>
                 <?php if ( $Drink->have_posts() ) : ?>
                     <?php while ( $Drink->have_posts() ) : $Drink->the_post(); ?>
-                        <div <?php post_class( 'card rounded' ); ?> id="post-<?php the_ID(); ?>">
+                        <div <?php post_class( 'card rounded shadow' ); ?> id="post-<?php the_ID(); ?>">
                             <?php
                                 if ( has_post_thumbnail() ) {
                                     the_post_thumbnail( 'normal', array(
