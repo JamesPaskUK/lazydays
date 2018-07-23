@@ -10,11 +10,15 @@ get_header(); ?>
             <?php while ( have_posts() ) : the_post(); ?>
                 <div class="row">
                     <article>
-                        <?php the_post_thumbnail( null, array(
-                            	'class' => 'img-fluid rounded'
-                        ) ); ?>
-                        <h2 class="mt-2"><?php the_title(); ?></h2> 
-                        <?php the_content(); ?> 
+                        <div class="photo-container">
+                            <?php the_post_thumbnail( 'post_thumbnail', array(
+                                	'class' => 'img-fluid rounded photo'
+                            ) ); ?>
+                            <div class="photo-text text-white">
+                                <h2 class="mt-2 display-4"><?php the_title(); ?></h2>
+                                <?php the_content(); ?>
+                            </div>
+                        </div>                                                                          
                     </article>
                 </div>
             <?php endwhile; ?>
