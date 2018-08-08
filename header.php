@@ -7,6 +7,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <!-- Bootstrap core CSS -->
+        <!-- <link rel="stylesheet" href="//basehold.it/24"> -->
         <!-- Custom styles for this template -->
         <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
         <?php wp_head(); ?>
