@@ -18,7 +18,7 @@ get_header(); ?>
                                 <h2 class="mt-2 display-4"><?php the_title(); ?></h2>
                                 <?php the_content(); ?>
                             </div>
-                        </div>                                                                          
+                        </div>                                     
                     </article>
                 </div>
             <?php endwhile; ?>

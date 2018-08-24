@@ -6,77 +6,71 @@
 <?php
 get_header(); ?>
 
-<div class="alert alert-success container">
-    <strong><?php _e( 'page-drinks.php', 'lazy_days' ); ?></strong>
-</div>
-<section class="mt-4">
-    <div class="container">
-        <?php if ( have_posts() ) : ?>
-            <div class="row">
-                <?php while ( have_posts() ) : the_post(); ?>
-                    <article>
-                        <?php
-                            if ( has_post_thumbnail() ) {
-                                the_post_thumbnail( 'post_thumbnail', array(
-                            	'class' => 'img-fluid rounded'
-                            ) );
-                            }
-                         ?>
-                        <h2 class="mt-2"><?php the_title(); ?></h2> 
-                        <?php the_content(); ?>
-                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#modal1">
-                            <?php _e( 'Label', 'lazy_days' ); ?>
-                        </button>                                     
-                    </article>
-                <?php endwhile; ?>
-            </div>
-        <?php else : ?>
-            <p><?php _e( 'Sorry, no posts matched your criteria.', 'lazy_days' ); ?></p>
-        <?php endif; ?>
-        <div class="row">
-            <?php
-                $single_drinks_loop_args = array(
-                	'post_type' => 'drink'
-                )
-            ?>
-            <?php $single_drinks_loop = new WP_Query( $single_drinks_loop_args ); ?>
-            <?php if ( $single_drinks_loop->have_posts() ) : ?>
-                <?php while ( $single_drinks_loop->have_posts() ) : $single_drinks_loop->the_post(); ?>
-                    <article class="card card-body col-4">
-                    <a href="<?php echo esc_url( the_permalink() ); ?>">
-                            <?php $image_attributes = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ) );
-if( $image_attributes ) : ?>
-                            <img src="<?php echo $image_attributes[0]; ?>" class="img-fluid rounded" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>">
-                        <?php endif; ?>
-                        <h2 class="mt-2"><?php the_title(); ?></h2>
-                        </a>
-                        <div></div>                                     
-                    </article>
-                <?php endwhile; ?>
-                <?php wp_reset_postdata(); ?>
-            <?php endif; ?>
-            <article class="card card-body col-4">
-            <a href="<?php echo esc_url( the_permalink() ); ?>">
-                    <?php $image_attributes = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ) );
-if( $image_attributes ) : ?>
-                    <img src="<?php echo $image_attributes[0]; ?>" class="img-fluid rounded" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>">
-                <?php endif; ?>
-                <h2 class="mt-2"><?php the_title(); ?></h2>
-                </a>
-                <div></div>                             
-            </article>
-            <article class="card card-body col-4">
-            <a href="<?php echo esc_url( the_permalink() ); ?>">
-                    <?php $image_attributes = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ) );
-if( $image_attributes ) : ?>
-                    <img src="<?php echo $image_attributes[0]; ?>" class="img-fluid rounded" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>">
-                <?php endif; ?>
-                <h2 class="mt-2"><?php the_title(); ?></h2>
-                </a>
-                <div></div>                             
-            </article>
-        </div>
+<div class="container">
+    <div class="alert alert-success container">
+        <strong><?php _e( 'page-drinks.php', 'lazy_days' ); ?></strong>
     </div>
-</section>            
+    <section class="mt-4">
+        <div class="container">
+            <div class="row">
+                <?php if ( have_posts() ) : ?>
+                    <?php while ( have_posts() ) : the_post(); ?>
+                        <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+                            <?php
+                                if ( has_post_thumbnail() ) {
+                                    the_post_thumbnail( 'normal', array(
+                                	'class' => 'img-fluid'
+                                ) );
+                                }
+                             ?>
+                            <h2 class="mt-2"><?php the_title(); ?></h2> 
+                            <?php the_content(); ?> 
+                        </article>
+                    <?php endwhile; ?>
+                <?php else : ?>
+                    <p><?php _e( 'Sorry, no posts matched your criteria.', 'lazy_days' ); ?></p>
+                <?php endif; ?>
+            </div>
+            <div class="card-columns">
+                <?php
+                    $Drink_args = array(
+                    	'post_type' => 'Drink',
+                    	'nopaging' => true,
+                    	'order' => 'ASC',
+                    	'orderby' => 'date'
+                    )
+                ?>
+                <?php $Drink = new WP_Query( $Drink_args ); ?>
+                <?php if ( $Drink->have_posts() ) : ?>
+                    <?php while ( $Drink->have_posts() ) : $Drink->the_post(); ?>
+                        <div <?php post_class( 'card rounded shadow' ); ?> id="post-<?php the_ID(); ?>">
+                            <?php
+                                if ( has_post_thumbnail() ) {
+                                    the_post_thumbnail( 'normal', array(
+                                	'class' => 'card-img-top img-fluid drink-image'
+                                ) );
+                                }
+                             ?>
+                            <div class="card-body">
+                                <h3 class="card-title"><?php the_title(); ?></h3>
+                                <p class="card-text"><?php echo get_field( 'description' ); ?></p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="<?php echo esc_url( get_permalink() ); ?>">
+                                    <button type="button" class="badge-pill badge-info btn">
+                                        <?php _e( 'Nutritional Info', 'lazy_days' ); ?>
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    <?php endwhile; ?>
+                    <?php wp_reset_postdata(); ?>
+                <?php else : ?>
+                    <p><?php _e( 'Sorry, no posts matched your criteria.', 'lazy_days' ); ?></p>
+                <?php endif; ?>
+            </div>
+        </div>
+    </section>
+</div>            
 
 <?php get_footer(); ?>

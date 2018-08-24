@@ -12,7 +12,7 @@
         <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
         <?php wp_head(); ?>
     </head>
-    <body class="container <?php echo implode(' ', get_body_class()); ?>">
+    <body class="<?php echo implode(' ', get_body_class()); ?>">
         <!-- Bootstrap core JavaScript
     ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->

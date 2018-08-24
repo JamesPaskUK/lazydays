@@ -76,7 +76,7 @@ if ( ! class_exists( 'WP_Bootstrap4_Navwalker' ) ) {
                 // build a string to use as aria-labelledby.
                 $lablledby = 'aria-labelledby="' . end( $matches[2] ) . '"';
             }
-            $output .= "{$n}{$indent}<ul$class_names $lablledby role=\"menu\">{$n}";
+            $output .= "{$n}{$indent}<ul$class_names $labelledby role=\"menu\">{$n}";
         }
 
         /**

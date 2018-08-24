@@ -1,7 +1,191 @@
 /* Bootstrap theme customized with Pinegrow Web Editor */
-/* Vars go before the @import */
+@import url('https://fonts.googleapis.com/css?family=McLaren');
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
 
+$brown: #784d2a ;
+$primary: $brown ;
+$enable-gradients: true ;
+
+@import url('https://fonts.googleapis.com/css?family=Over+the+Rainbow');
+
+/* Vars go before the @import */
 /* Import the Bootstrap files */
+$font-family-sans-serif: McLaren, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$headings-font-family: 'Merriweather', serif;
+
 @import "bootstrap/bootstrap";
 
 /* Custom CSS rules come here */
+.site-title {
+    font-family: 'Over the Rainbow', cursive;
+}
+
+/*
+	-----------------------------------------
+	 Typography and Line Heights
+	-----------------------------------------
+*/
+.bgimage {
+    background-position: center center;
+    object-fit: fill;
+}
+
+.navbar-brand {
+    /* text-transform: uppercase */
+}
+
+.drink-image {
+    max-height: 200px;
+    overflow: hidden;
+    object-fit: cover;
+    object-position: 0px;
+    background-position: center center;
+}
+
+.photo-container {
+    position: relative;
+    text-align: center;
+}
+
+.photo-text {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo {
+    position: relative;
+    line-height: 0;
+    margin-bottom: 2em;
+    overflow: hidden;
+}
+
+.polaroid-images {
+    background: white;
+    display: inline;
+    margin: 0 15px 30px;
+    padding: 10px 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+    -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+    -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+    transition: all .15s ease-in-out;
+    position: relative;
+    transform: rotate(-4deg);
+}
+
+.polaroid-images:hover {
+    background: white;
+    display: inline;
+    margin: 0 15px 30px;
+    padding: 10px 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+    -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+    -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+    transition: all .15s ease-in-out;
+    position: relative;
+    transform: rotate(0) scale(1.2);
+}
+
+/*
+	=========================================================================
+	 MEDIA QUERIES
+	=========================================================================
+*/
+/* SM */
+@media (min-width: 576px) {
+    .card-column {
+        column-count: 2;
+    }
+}
+
+/* MD */
+@media (min-width: 768px) {
+    .card-column {
+        column-count: 3;
+    }
+
+    .two-columns {
+        columns: 2;
+        column-fill: balance;
+        break-inside: avoid;
+        break-before: auto;
+        break-after: auto;
+        margin-left: 2em;
+        margin-right: 2em;
+        column-gap: 3rem;
+    }
+
+    /* LG */
+    @media (min-width: 992px) {
+        .card-column {
+            column-count: 4;
+        }
+
+        .polaroid-images {
+            border: 5px solid #ffffff;
+        }
+    }
+
+    /* XL */
+    @media (min-width: 1200px) {
+        /*.card-columns {
+            column-count: 5;
+        }*/
+        /*body {
+            font-size: 1.3em;
+            line-height: 1.6;
+        }*/
+    }
+}
+
+@media (max-width:767px) {
+    .two-columns {
+        columns: 1;
+        column-gap: 0;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .two-columns {
+        columns: 1;
+        column-gap: 3rem;
+        margin-left: 3em;
+        margin-right: 3em;
+    }
+}
+
+.two-columns {
+    columns: 2;
+    column-gap: 3rem;
+    column-fill: balance;
+    break-before: avoid;
+    break-inside: avoid;
+    break-after: avoid;
+    margin-left: 3em;
+    margin-right: 3em;
+}
+
+@media (max-width:767px) {
+    .two-columns {
+        columns: 1;
+        column-gap: 3rem;
+        column-fill: balance;
+        break-before: avoid;
+        break-inside: avoid;
+        break-after: avoid;
+        margin-left: 3em;
+        margin-right: 3em;
+    }
+}

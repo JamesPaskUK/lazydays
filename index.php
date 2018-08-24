@@ -9,7 +9,7 @@ background-size: cover;
 background-position: center center;">
             <div class="d-flex">
                 <div class="py-5 my-auto"> 
-                    <h1 class="text-center display-4"><?php _e( 'Delicious-ness and freshness stuffed into a small cafe. Perfection!', 'lazy_days' ); ?></h1>
+                    <h1 class="text-center display-4 site-title"><?php _e( 'Delicious-ness and freshness stuffed into a small cafe. Perfection!', 'lazy_days' ); ?></h1>
                     <p class="lead text-center"><?php _e( 'Relax and unwind with our artisan coffees and food in our tranquil surroundings.', 'lazy_days' ); ?></p>
                 </div>
             </div>

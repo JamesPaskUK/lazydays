@@ -1,7 +1,7 @@
 
         </main>
         <footer>
-            <hr />
+            <hr/>
             <div>
                 <p><?php _e( '(c) Lazy Days Coffee House 2018', 'lazy_days' ); ?></p>
             </div>

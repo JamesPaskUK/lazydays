@@ -102,6 +102,45 @@ function lazy_days_customize_register( $wp_customize ) {
     // Do stuff with $wp_customize, the WP_Customize_Manager object.
 
     /* Pinegrow generated Customizer Controls Begin */
+    $pgwp_sanitize = function_exists('pgwp_sanitize_placeholder') ? 'pgwp_sanitize_placeholder' : null;
+
+    $wp_customize->add_section( 'lazy_days_default_cs', array('title' => 'Default section'));
+
+    $wp_customize->add_setting( 'header_image', array(
+		'type' => 'theme_mod',
+		'sanitize_callback' => $pgwp_sanitize
+	));
+
+    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'header_image', array(
+		'label' => __( 'Header Background Image', 'lazy_days' ),
+		'type' => 'media',
+		'mime_type' => 'image',
+		'section' => 'lazy_days_default_cs'
+	) ) );
+
+    $wp_customize->add_setting( 'page_title', array(
+		'type' => 'theme_mod',
+		'default' => __( 'Heritage', 'lazy_days' ),
+		'sanitize_callback' => $pgwp_sanitize
+	));
+
+    $wp_customize->add_control( 'page_title', array(
+		'label' => __( 'Page Title', 'lazy_days' ),
+		'type' => 'text',
+		'section' => 'lazy_days_default_cs'
+	));
+
+    $wp_customize->add_setting( 'page_image', array(
+		'type' => 'theme_mod',
+		'sanitize_callback' => $pgwp_sanitize
+	));
+
+    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'page_image', array(
+		'label' => __( 'Image', 'lazy_days' ),
+		'type' => 'media',
+		'mime_type' => 'image',
+		'section' => 'lazy_days_default_cs'
+	) ) );
 
     /* Pinegrow generated Customizer Controls End */
 
@@ -127,18 +166,24 @@ if ( ! function_exists( 'lazy_days_enqueue_scripts' ) ) :
     wp_deregister_script( 'ieviewportbugworkaround' );
     wp_enqueue_script( 'ieviewportbugworkaround', get_template_directory_uri() . '/assets/js/ie10-viewport-bug-workaround.js', false, null, true);
 
+    wp_deregister_script( 'popper' );
+    wp_enqueue_script( 'popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', false, null, true);
+
+    wp_deregister_script( 'bootstrap' );
+    wp_enqueue_script( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js', false, null, true);
+
     /* Pinegrow generated Enqueue Scripts End */
 
         /* Pinegrow generated Enqueue Styles Begin */
 
-    wp_deregister_style( 'bootstrap' );
-    wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/bootstrap/css/bootstrap.css', false, null, 'all');
-
     wp_deregister_style( 'style' );
     wp_enqueue_style( 'style', get_bloginfo('stylesheet_url'), false, null, 'all');
 
-    wp_deregister_style( 'style-1' );
-    wp_enqueue_style( 'style-1', 'http://fonts.googleapis.com/css?family=Over+the+Rainbow:400', false, null, 'all');
+    wp_deregister_style( 'bootstrap' );
+    wp_enqueue_style( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css', false, null, 'all');
+
+    wp_deregister_style( 'bootstrap' );
+    wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/bootstrap/css/bootstrap.css', false, null, 'all');
 
     /* Pinegrow generated Enqueue Styles End */
 
