@@ -2,12 +2,13 @@
 get_header(); ?>
 
 <div class="alert alert-success container">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">&times;</button>
     <strong><?php _e( 'front-page.php', 'lazy_days' ); ?></strong>
 </div>
-<section class="bgimage jumbotron jumbotron-fluid" style="background-image:<?php echo 'url('.wp_get_attachment_image_url( get_theme_mod( 'header_image' ), 'normal' ).')' ?>;">
+<section class="jumbotron-fluid jumbotron bgimage" style="background-image:<?php echo 'url('.wp_get_attachment_image_url( get_theme_mod( 'header_image' ), 'normal' ).')' ?>;">
     <div class="d-flex container">
         <div class="py-5 my-auto"> 
-            <h1 class="text-center display-4 site-title"><?php _e( 'Delicious-ness and freshness stuffed into a small cafe. Perfection!', 'lazy_days' ); ?></h1>
+            <h1 class="text-center display-4 site-title w-auto"><?php _e( 'Delicious-ness and freshness stuffed into a small cafe. Perfection!', 'lazy_days' ); ?></h1>
             <p class="lead text-center"><?php _e( 'Relax and unwind with our artisan coffees and food in our tranquil surroundings.', 'lazy_days' ); ?></p>
         </div>
     </div>

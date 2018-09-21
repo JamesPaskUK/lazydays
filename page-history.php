@@ -10,10 +10,10 @@ get_header(); ?>
         <img src="<?php echo wp_get_attachment_image_url( get_theme_mod( 'page_image', 'assets/olivier-collet-417248-unsplash.jpg' ), 'normal' ) ?>" class="d-block mx-auto polaroid-images w-75">
     </div>
 </section>
-<section class="jumbotron-fluid jumbotron text-white mt-5 bg-primary">
+<section class="jumbotron-fluid jumbotron text-white bg-primary mt-5">
     <?php if ( have_posts() ) : ?>
         <?php while ( have_posts() ) : the_post(); ?>
-            <div <?php post_class( 'two-columns pt-3 dropcap' ); ?> id="post-<?php the_ID(); ?>"> 
+            <div <?php post_class( 'two-columns pt-3 dropcap text-white-50' ); ?> id="post-<?php the_ID(); ?>"> 
                 <?php the_content(); ?>
             </div>
         <?php endwhile; ?>

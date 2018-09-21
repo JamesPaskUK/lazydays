@@ -12,12 +12,12 @@
         <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
         <?php wp_head(); ?>
     </head>
-    <body class="<?php echo implode(' ', get_body_class()); ?>">
+    <body class="body-background <?php echo implode(' ', get_body_class()); ?>">
         <!-- Bootstrap core JavaScript
     ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <header class="pb-3">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
+            <nav class="navbar navbar-expand-lg navbar-light bg-primary"> 
                 <a class="navbar-brand" href="<?php echo esc_url( home_url() ); ?>"><?php bloginfo( 'name' ); ?></a> 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler12" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation"> 
                     <span class="navbar-toggler-icon"></span> 

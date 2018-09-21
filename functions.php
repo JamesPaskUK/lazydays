@@ -172,6 +172,9 @@ if ( ! function_exists( 'lazy_days_enqueue_scripts' ) ) :
     wp_deregister_script( 'bootstrap' );
     wp_enqueue_script( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js', false, null, true);
 
+    wp_deregister_script( 'bootstrap' );
+    wp_enqueue_script( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js', false, null, true);
+
     /* Pinegrow generated Enqueue Scripts End */
 
         /* Pinegrow generated Enqueue Styles Begin */
@@ -181,6 +184,9 @@ if ( ! function_exists( 'lazy_days_enqueue_scripts' ) ) :
 
     wp_deregister_style( 'bootstrap' );
     wp_enqueue_style( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css', false, null, 'all');
+
+    wp_deregister_style( 'bootstrap' );
+    wp_enqueue_style( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css', false, null, 'all');
 
     wp_deregister_style( 'bootstrap' );
     wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/bootstrap/css/bootstrap.css', false, null, 'all');

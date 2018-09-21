@@ -1,12 +1,11 @@
 /* Bootstrap theme customized with Pinegrow Web Editor */
+@import url('https://fonts.googleapis.com/css?family=Over+the+Rainbow');
 @import url('https://fonts.googleapis.com/css?family=McLaren');
 @import url('https://fonts.googleapis.com/css?family=Merriweather');
 
 $brown: #784d2a ;
 $primary: $brown ;
 $enable-gradients: true ;
-
-@import url('https://fonts.googleapis.com/css?family=Over+the+Rainbow');
 
 /* Vars go before the @import */
 /* Import the Bootstrap files */
@@ -16,10 +15,6 @@ $headings-font-family: 'Merriweather', serif;
 @import "bootstrap/bootstrap";
 
 /* Custom CSS rules come here */
-.site-title {
-    font-family: 'Over the Rainbow', cursive;
-}
-
 /*
 	-----------------------------------------
 	 Typography and Line Heights
@@ -27,7 +22,10 @@ $headings-font-family: 'Merriweather', serif;
 */
 .bgimage {
     background-position: center center;
-    object-fit: fill;
+    object-fit: contain;
+    overflow: hidden;
+    background-clip: border-box;
+    background-image: -webkit-linear-gradient(top, rgb(183, 152, 145) 0%, rgb(148, 113, 107) 100%);
 }
 
 .navbar-brand {
@@ -96,6 +94,20 @@ $headings-font-family: 'Merriweather', serif;
     transition: all .15s ease-in-out;
     position: relative;
     transform: rotate(0) scale(1.2);
+}
+
+.recipe-image {
+    height: 200px;
+    display: block;
+    overflow: hidden;
+    object-fit: cover;
+    width: 100%;
+    object-position: 0px;
+    background-position: center center;
+    background-clip: content-box;
+    background-origin: content-box;
+    align-content: center;
+    align-items: center;
 }
 
 /*
@@ -188,4 +200,19 @@ $headings-font-family: 'Merriweather', serif;
         margin-left: 3em;
         margin-right: 3em;
     }
+}
+
+Style attribute {
+    background-color: rgba(189, 153, 118, 0.44);
+}
+
+.body-background {
+    background-color: rgba(189, 153, 118, 0.44);
+}
+
+.site-title {
+}
+
+.site-title {
+    font-family: Over the Rainbow;
 }

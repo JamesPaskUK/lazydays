@@ -3,7 +3,7 @@
         <footer>
             <hr/>
             <div>
-                <p><?php _e( '(c) Lazy Days Coffee House 2018', 'lazy_days' ); ?></p>
+                <p class="text-center"><?php _e( '(c) Lazy Days Coffee House 2018', 'lazy_days' ); ?></p>
             </div>
         </footer>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

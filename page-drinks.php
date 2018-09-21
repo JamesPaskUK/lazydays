@@ -18,7 +18,7 @@ get_header(); ?>
                         <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
                             <?php
                                 if ( has_post_thumbnail() ) {
-                                    the_post_thumbnail( 'normal', array(
+                                    the_post_thumbnail( 'medium', array(
                                 	'class' => 'img-fluid'
                                 ) );
                                 }
@@ -46,7 +46,7 @@ get_header(); ?>
                         <div <?php post_class( 'card rounded shadow' ); ?> id="post-<?php the_ID(); ?>">
                             <?php
                                 if ( has_post_thumbnail() ) {
-                                    the_post_thumbnail( 'normal', array(
+                                    the_post_thumbnail( 'medium', array(
                                 	'class' => 'card-img-top img-fluid drink-image'
                                 ) );
                                 }

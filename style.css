@@ -9,3 +9,16 @@ License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: lazy_days
 */
+.recipe-image {
+    height: 200px;
+    display: block;
+    overflow: hidden;
+    object-fit: cover;
+    width: 100%;
+    object-position: 0px;
+    background-position: center center;
+    background-clip: content-box;
+    background-origin: content-box;
+    align-content: center;
+    align-items: center;
+}
